@@ -30,7 +30,7 @@ for Info in countryInfo:
 
 plt.figure(figsize=(20, 50))
 plt.barh(x,y)
-plt.title("The number of occurrences in each country by confRef")
+plt.title("The number of occurrences in each country by wikiCfp")
 plt.xlabel('Numbers')
 plt.ylabel('countryName')
 plt.savefig('wikiCfp.png')
