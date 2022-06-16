@@ -1,7 +1,7 @@
 import re
 import csv
 import pandas as pd
-
+import numpy as np
 
 #This file contains some functions that may be used when manipulating data
 
@@ -108,6 +108,26 @@ def dateNormalization(file_name):
     df['endDate'] = pd.to_datetime(df['endDate'], errors='coerce')
     df.to_csv(file_name, encoding='utf-8', index=False)
 
+#This function is used to remove eg 01-01 dates in confRef due to parsing errors
+def deleteWrongStartAndEndDate(filename,n,m,modifiedfilename):
+
+    wrongStartDate = filename.startDate.str.endswith('01-01')
+    wrongEndDate = filename.endDate.str.endswith('01-01')
+
+    a = filename['startDate']
+    b = filename['endDate']
+
+    for i in range(0, len(a)):
+        if wrongStartDate[i] is True:
+            a[i] = np.nan
+        if wrongEndDate[i] is True:
+            b[i] = np.nan
+
+    filename.drop('startDate', axis=1, inplace=True)
+    filename.drop('endDate', axis=1, inplace=True)
+    filename.insert(n, 'startDate', a)
+    filename.insert(m, 'endDate', b)
+    filename.to_csv(modifiedfilename, encoding='utf-8', index=False)
 
 
 
