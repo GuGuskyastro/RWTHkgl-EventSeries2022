@@ -1,3 +1,0 @@
-pip="pip3"
-
-$pip install --requirement requirements.txt
