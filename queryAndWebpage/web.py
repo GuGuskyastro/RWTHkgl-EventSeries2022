@@ -6,7 +6,7 @@ import  Query as q
 
 
 # 展示文本；文本直接使用Markdown语法
-st.markdown("# Streamlit示例")
+st.markdown("# Streamlit Example")
 
 title = st.text_input("Insert a title you want find", "")
 a = "Please search a Acronym you want"
