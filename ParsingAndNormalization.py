@@ -95,10 +95,108 @@ def dateParse(text):
     else:finalEndDate = ""
 
     result = {}
-    result['title'] = text
     result['finalStartDate'] = finalStartDate
     result['finalEndDate'] = finalEndDate
     return result
+
+#This date parser function is used to handle oneDay Event in dblp
+def oneDayEventdateParse(text):
+
+    y = None
+    startMonth = None
+    endMonth = None
+    startDay = None
+    endDay = None
+
+
+    year_pattern = re.compile(r'\d{4}')
+    year = re.search(year_pattern, text)
+    if year is not None:
+        y = year.group()
+        text = text.replace(y,"")
+
+
+    monthNormal = {
+        'January': '1',
+        'February': '2',
+        'March': '3',
+        'April': '4',
+        'May': '5',
+        'June': '6',
+        'July': '7',
+        'August': '8',
+        'September': '9',
+        'October': '10',
+        'November': '11',
+        'December': '12',
+    }
+
+    monthList = ['January','February','March','April','May','June','July','August','September','October','November','December']
+
+    month_pattern = re.compile('January|February|March|April|May|June|July|August|September|October|November|December', re.I)
+    month = re.findall(month_pattern,text)
+
+
+    if len(month) == 1 and checkDate(text) is True:
+        startMonth = month[0]
+        endMonth = month[0]
+
+        for i in range(0,len(monthList)):
+            day_pattern2 = re.compile(
+                f'\d{{2}} {monthList[i]}|\d{{2}}th {monthList[i]}|21st {monthList[i]}|22nd {monthList[i]}|23rd {monthList[i]}|31st {monthList[i]}'
+                f'|{monthList[i]} \d{{2}}|{monthList[i]} \d{{2}}th|{monthList[i]} 21st|{monthList[i]} 22nd|{monthList[i]} 23rd|{monthList[i]} 31st')
+
+            day2 = re.search(day_pattern2, text)
+
+            if day2 is not None:
+                d = day2.group()
+                d_pattern = re.compile('\d+')
+                startdayAndendDay = re.findall(d_pattern, d)
+                startDay = startdayAndendDay[0]
+                endDay = startdayAndendDay[0]
+                break
+
+            day_pattern = re.compile(
+                f'\d{{1}} {monthList[i]}|\d{{1}}th {monthList[i]}|1st {monthList[i]}|2nd {monthList[i]}|3rd {monthList[i]}'
+                f'|{monthList[i]} \d{{1}}|{monthList[i]} \d{{1}}th|{monthList[i]} 1st|{monthList[i]} 2nd|{monthList[i]} 3rd')
+
+            day = re.search(day_pattern,text)
+
+            if day is not None:
+                d = day.group()
+                d_pattern = re.compile('\d+')
+                startdayAndendDay = re.findall(d_pattern, d)
+                startDay = startdayAndendDay[0]
+                endDay = startdayAndendDay[0]
+                break
+
+    if startMonth is not None and endMonth is not None:
+        for n in monthNormal:
+            startMonth = startMonth.replace(n, monthNormal[n])
+            endMonth = endMonth.replace(n, monthNormal[n])
+
+    if y is not None and startMonth is not None and startDay is not None:
+        finalStartDate = y + '-' + startMonth + '-' + startDay
+    else:
+        finalStartDate = ""
+
+    if y is not None and endMonth is not None and endDay is not None:
+        finalEndDate = y + '-' + endMonth + '-' + endDay
+    else:
+        finalEndDate = ""
+
+    result = {}
+    result['finalStartDate'] = finalStartDate
+    result['finalEndDate'] = finalEndDate
+    return result
+
+
+def checkDate(text):
+    day_pattern = re.compile('(\d{2}-+\d{2})|(\d{2} - +\d{2})|(\d{1}-+\d{2})|(\d{1} - +\d{2})|(\d{1}-+\d{1})|(\d{1} - +\d{1})')
+    day = re.search(day_pattern, text)
+    if day is None:
+        return True
+    else: return False
 
 #Use pandas functions to unify date formats
 def dateNormalization(file_name):

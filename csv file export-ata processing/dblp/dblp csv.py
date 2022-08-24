@@ -38,6 +38,15 @@ for i in range(1,len(title)):
         startDate[i] = finalDate['finalStartDate']
     if endDate[i] == "":
         endDate[i] = finalDate['finalEndDate']
+
+for n in range(1,len(title)):
+    finalDate2 = p.oneDayEventdateParse(title[n])
+    if startDate[n] == "":
+        startDate[n] = finalDate2['finalStartDate']
+    if endDate[n] == "":
+        endDate[n] = finalDate2['finalEndDate']
+
+
 del startDate[0]
 del endDate[0]
 
