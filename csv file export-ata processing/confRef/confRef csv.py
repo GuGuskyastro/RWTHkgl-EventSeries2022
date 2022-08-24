@@ -25,6 +25,7 @@ print('remove exact duplicate lines')
 
 #Format dates by using pandas
 df = pd.read_csv('confRefEvent.csv')
+p.deleteWrongStartAndEndDate(df,4,5,'confRefEvent.csv')
 df['startDate'] = pd.to_datetime(df['startDate'],errors = 'coerce')
 df['endDate'] = pd.to_datetime(df['endDate'],errors = 'coerce')
 df.to_csv('confRefEvent.csv',encoding='utf-8',index=False)
@@ -32,7 +33,6 @@ print('Uniform date format')
 
 p.yearNormalization('confRefEvent.csv')
 p.delWorkShop('confRefEvent.csv')
-
 p.FilterWithCountry('confRefEvent.csv')
 
 

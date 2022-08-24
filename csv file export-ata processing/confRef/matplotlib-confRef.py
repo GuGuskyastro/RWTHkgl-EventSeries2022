@@ -7,7 +7,7 @@ def creatCountryDiagramm():
     #print country label
     with open('confRefEvent.csv', 'r', encoding='utf-8') as f:
         reader = csv.reader(f)
-        country = [row[3] for row in reader]
+        country = [row[2] for row in reader]
     #print(country)
 
     #Count the number of occurrences of each country

@@ -7,7 +7,7 @@ def creatCountryDiagramm():
     #print country label
     with open('wikiCfpEvent.csv', 'r', encoding='utf-8') as f:
         reader = csv.reader(f)
-        country = [row[3] for row in reader]
+        country = [row[4] for row in reader]
     #print(country)
 
     #Count the number of occurrences of each country
@@ -42,10 +42,10 @@ def creatCountryDiagramm():
 def creatMonthDurationDiagramm():
     with open('wikiCfpEvent.csv', 'r', encoding='utf-8') as f:
         reader = csv.reader(f)
-        startDate = [row[4] for row in reader]
+        startDate = [row[5] for row in reader]
     with open('wikiCfpEvent.csv', 'r', encoding='utf-8') as f:
         reader = csv.reader(f)
-        endDate = [row[5] for row in reader]
+        endDate = [row[6] for row in reader]
 
     monthDuration = []
     durationCount = {}
