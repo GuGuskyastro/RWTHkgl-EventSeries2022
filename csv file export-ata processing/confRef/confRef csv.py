@@ -35,5 +35,4 @@ p.yearNormalization('confRefEvent.csv')
 p.delWorkShop('confRefEvent.csv')
 p.FilterWithCountry('confRefEvent.csv')
 
-
 conn.close()

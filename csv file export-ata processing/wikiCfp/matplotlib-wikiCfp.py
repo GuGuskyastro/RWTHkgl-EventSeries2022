@@ -82,6 +82,5 @@ def creatMonthDurationDiagramm():
     plt.ylabel('Duration')
     plt.savefig('wikiCfpDuration.png')
 
-
 creatCountryDiagramm()
 creatMonthDurationDiagramm()

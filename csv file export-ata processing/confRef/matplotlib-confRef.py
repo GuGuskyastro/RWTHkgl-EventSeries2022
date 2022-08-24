@@ -82,6 +82,7 @@ def creatMonthDurationDiagramm():
     plt.ylabel('Duration')
     plt.savefig('confRefDuration.png')
 
+
 creatCountryDiagramm()
 creatMonthDurationDiagramm()
 
