@@ -84,7 +84,7 @@ The main file directory of the project is shown in the figure, and some image fi
 
 ```
 kgl-commencases
-├─ csv file export-ata processing            # Raw data collection for each data source
+├─ csvFileExport-ataProcessing               # Raw data collection for each data source
 │  ├─confRef                                 # Data source name
 │  │      confRef csv.py                     # Raw data extraction and preprocessing
 │  │      confRefEvent.csv                   # Raw data table
@@ -105,7 +105,7 @@ kgl-commencases
 │          wikidata csv.py
 │          wikidataEvent.csv
 │          
-├─ Data processing and matching             # Knowledge graph construction
+├─ DataProcessingAndMatching                # Knowledge graph construction
 │  ├─ neo4j match.py                        # Import data table content into Neo4j , establishment of basic relationships
 │  ├─ cosSimilar.py                         # Cosine Similarity Algorithm Supplement to creat relationships
 │  ├─ confRefEvent.csv
