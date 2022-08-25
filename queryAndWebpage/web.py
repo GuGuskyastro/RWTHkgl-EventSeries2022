@@ -1,12 +1,10 @@
 import streamlit as st
-import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 import  Query as q
 
 
-# 展示文本；文本直接使用Markdown语法
-st.markdown("# Streamlit Example")
+#
+st.markdown("#Scientific conference record query demo")
 
 title = st.text_input("Insert a title you want find", "")
 a = "Please search a Acronym you want"
