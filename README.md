@@ -68,7 +68,7 @@ Streamlit turns data scripts into shareable web apps in minutes only in pure Pyt
 + ### Files that need to be run to start the project
 
 ```
- neo4j match.py
+ neo4jMatch.py
  
  cosSimilar.py
 ```
