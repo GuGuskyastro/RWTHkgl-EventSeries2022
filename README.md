@@ -162,3 +162,6 @@ After the query for the input series is completed, the list content is added to 
 
 
 ## References and Acknowledgments
+Before this project was launched, I didn't know much about knowledge graphs. When searching for information in csdn, I accidentally read a knowledge graph project based on the medical field. [This project](https://github.com/baiyang2464/chatbot-base-on-Knowledge-Graph) has given me a lot of help and inspiration in understanding the structure of knowledge graph.<br>
+
+The completion of the project is also inseparable from the help of two team supervisors in the research group. Heartfelt thanks to [Wolfgang Fahl](https://github.com/WolfgangFahl) and [Tim Holzheim](https://github.com/tholzheim)!
