@@ -106,7 +106,7 @@ kgl-commencases
 │          wikidataEvent.csv
 │          
 ├─ DataProcessingAndMatching                # Knowledge graph construction
-│  ├─ neo4jatch.py                        # Import data table content into Neo4j , establishment of basic relationships
+│  ├─ neo4jMatch.py                        # Import data table content into Neo4j , establishment of basic relationships
 │  ├─ cosSimilar.py                         # Cosine Similarity Algorithm Supplement to creat relationships
 │  ├─ confRefEvent.csv
 │  ├─ dblpEvent.csv
