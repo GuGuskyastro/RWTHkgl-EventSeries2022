@@ -276,3 +276,24 @@ def FilterWithCountry(filename):
 
     df.to_csv(filename,encoding='utf-8', index=False)
     print('Country Filter success')
+
+def filterDuration(filename):
+    pd.set_option('mode.chained_assignment', None)
+    df = pd.read_csv(filename)
+    df = df.assign(Duration="")
+    df.fillna('', inplace=True)
+    for i in range(0,len(df)):
+        if df['startDate'][i] != "" and df['endDate'][i] != "":
+            realStartDate = pd.to_datetime(df['startDate'][i], format="%Y-%m-%d")
+            realEndDate = pd.to_datetime(df['endDate'][i], format="%Y-%m-%d")
+            df['Duration'][i] = monthDifferenceCalculation(realStartDate,realEndDate)
+
+    durList = ["","0 Month","1 Month","2 Month"]
+
+    for i in df['Duration']:
+        if i not in durList:
+            df.drop(df[df['Duration'] == i].index,inplace=True)
+
+    df.drop(columns=['Duration'],inplace=True)
+    df.to_csv(filename,encoding='utf-8', index=False)
+    print('duration Filter success')

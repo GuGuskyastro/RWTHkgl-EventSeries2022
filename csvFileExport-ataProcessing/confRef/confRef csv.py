@@ -34,5 +34,6 @@ print('Uniform date format')
 p.yearNormalization('confRefEvent.csv')
 p.delWorkShop('confRefEvent.csv')
 p.FilterWithCountry('confRefEvent.csv')
+p.filterDuration('confRefEvent.csv')
 
 conn.close()

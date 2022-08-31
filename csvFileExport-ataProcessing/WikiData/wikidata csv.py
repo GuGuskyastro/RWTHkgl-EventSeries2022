@@ -33,6 +33,7 @@ print('Uniform date format')
 p.delWorkShop('wikidataEvent.csv')
 p.yearNormalization('wikidataEvent.csv')
 p.FilterWithCountry('wikidataEvent.csv')
+p.filterDuration('wikidataEvent.csv')
 
 conn.close()
 

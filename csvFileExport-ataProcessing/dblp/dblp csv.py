@@ -62,5 +62,5 @@ df.to_csv('dblpEvent.csv',encoding='utf-8',index=False)
 p.delWorkShop('dblpEvent.csv')
 p.yearNormalization('dblpEvent.csv')
 p.FilterWithCountry('dblpEvent.csv')
-
+p.filterDuration('dblpEvent.csv')
 
